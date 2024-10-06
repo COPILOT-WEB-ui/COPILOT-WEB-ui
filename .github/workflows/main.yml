@@ -1,1 +1,42 @@
-https://github.com/COPILOT-WEB-ui/COPILOT-WEB-ui/tree/7c6b946cc771c41646c7590dc0a9e07506c3e3d6
+https://github.com/COPILOT-WEB-ui/COPILOT-WEB-ui/tree/7c6b946cc771c41646c7590dc0a9e07506c3e3d6  && Create a Workflow File:
+Navigate to your repository.
+Go to .github/workflows/ and create a new file, e.g., main.yml.
+Define Your Workflow:
+Use the following template to set up a basic CI/CD pipeline:
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run tests
+      run: npm test
+
+    - name: Deploy
+      run: npm run deploy
+
+Customize as Needed:
+Modify the node-version, install, test, and deploy commands to fit your project’s requirements.
+Commit and Push:
+Commit your changes and push them to the main branch.
+This setup will automatically run your defined actions whenever code is pushed to the main branch or a pull request is made. Feel free to expand and customize the workflow to suit your specific needs! If you need more detailed steps or have specific requirements, let me know!
